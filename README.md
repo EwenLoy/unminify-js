@@ -112,6 +112,19 @@ detection, the worker environment, and the built `index.html` executed in jsdom 
 - No source maps are produced; the mapping is only used for counters.
 - Clipboard access on `file://` falls back to `document.execCommand('copy')` in some browsers.
 
+## Contributing
+
+Issues and pull requests are welcome.
+
+- Install with `npm install`, then run `npm test` and `npm run typecheck` before opening a pull
+  request. CI runs the same checks on Node.js 22.
+- Rebuild the generated files with `npm run build:standalone` when `index.html`, `src/styles.css`
+  or `src/standalone.ts` change, and commit the result together with the source change.
+- Check UI changes both in the dev server (`npm run dev`, `/dev.html`) and by opening `index.html`
+  over `file://`, since the two use different formatter transports.
+- Formatter output is expected to match the Chromium implementation; add or extend a case under
+  `tests/` when behaviour changes.
+
 ## License
 
 The tool itself is released under the [MIT License](LICENSE). Third-party code in
